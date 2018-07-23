@@ -1,5 +1,11 @@
 /*
 abc103_c
+这一题要求求出f(m)=m%a1 + m%a2 + ... ... + m%an的最大值。
+因为m%ai的范围大于等于0，小于等于ai-1
+所以f(m)的上限为sum(ai) - N
+让每个式子的值都为最大
+当m=a1*a2*...*an-1时可以满足
+则最大值为sum(ai-1)
 */
 #include<algorithm>
 #include<iostream>
@@ -13,17 +19,12 @@ int main() {
 	freopen("c.out", "w", stdout);
 	int N, t;
 	cin >> N;
-	vector<int> a;
+	long long ans = 0;
 	for (int i = 0; i < N; i++)
 	{
 		cin >> t;
-		a.push_back(t);
+		ans += t - 1;
 	}
-
-	sort(a.begin(), a.end());
-
-
-
 	cout << ans << endl;
 	fclose(stdin);
 	fclose(stdout);
